@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Calculator_WPF</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="icons8-calculator-48.png" />
+    <None Remove="icons8-menu-20.png" />
+    <None Remove="icons8-menu-30.png" />
+    <None Remove="icons8-time-machine-24 %281%29.png" />
+    <None Remove="Windows_Calculator_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icons8-calculator-48.png" />
+    <Resource Include="icons8-menu-20.png" />
+    <Resource Include="icons8-menu-30.png" />
+    <Resource Include="icons8-time-machine-24 (1).png" />
+    <Resource Include="Windows_Calculator_icon.png" />
+  </ItemGroup>
+
+</Project>
