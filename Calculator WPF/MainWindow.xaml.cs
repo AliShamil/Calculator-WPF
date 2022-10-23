@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -71,7 +72,7 @@ namespace Calculator_WPF
                     ButtonDel_Click(sender, e);
                     break;
                 case Key.OemPeriod:
-                    ButtonCalcSymb_Click(findBtn(grid_num.Children, ".")!, e);
+                    ButtonDot_Click(findBtn(grid_num.Children, ".")!, e);
                     break;
                 case Key.OemMinus:
                     ButtonCalcSymb_Click(findBtn(grid_num.Children, "-")!, e);
@@ -88,6 +89,7 @@ namespace Calculator_WPF
                 case Key.Enter:
                     ButtonEqual_Click(sender, e);
                     break;
+
             }
         }
 
@@ -127,8 +129,9 @@ namespace Calculator_WPF
                     return;
                 }
 
+
                 if (char.IsDigit(txt.Text[txt.Text.Length - 1]) || txt.Text[txt.Text.Length - 1] == '.' && btn.Content.ToString() != "." || txt.Text[txt.Text.Length - 1] == ',' && btn.Content.ToString() != ".")
-                    txt.Text += btn.Content.ToString();
+                        txt.Text += btn.Content.ToString();
             }
         }
 
@@ -190,6 +193,21 @@ namespace Calculator_WPF
             }
         }
 
+        private void ButtonDot_Click(object sender, RoutedEventArgs e)
+        {
 
+            if (string.IsNullOrEmpty(txt.Text))
+                return;
+
+            if (sender is Button btn)
+            {
+                int count = txt.Text.ToString().Count(t => t=='.' ||t==',');
+               
+
+                if (char.IsDigit(txt.Text[txt.Text.Length - 1]) || txt.Text[txt.Text.Length - 1] == '.' && btn.Content.ToString() != "." || txt.Text[txt.Text.Length - 1] == ',' && btn.Content.ToString() != ".")
+                    if (count <1)
+                        txt.Text += btn.Content.ToString();
+            }
+        }
     }
 }

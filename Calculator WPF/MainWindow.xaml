@@ -1024,7 +1024,7 @@
 
 
             <Button 
-                Click="ButtonCalcSymb_Click"
+                Click="ButtonDot_Click"
                 Grid.Row="5"
                 Grid.Column="2"
                 Padding="0 0 3 10"
@@ -1054,7 +1054,7 @@
                 </Button.Style>
             </Button>
 
-            <Button 
+            <RepeatButton 
                 Click="ButtonEqual_Click"
                 Grid.Row="5"
                 Grid.Column="3"
@@ -1064,12 +1064,12 @@
                 Margin="2"  Foreground="White"
                 Content="=">
 
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
+                <RepeatButton.Style>
+                    <Style TargetType="{x:Type RepeatButton}">
                         <Setter Property="Background" Value="#FF007ACC"/>
                         <Setter Property="Template">
                             <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
+                                <ControlTemplate TargetType="{x:Type RepeatButton}">
                                     <Border Background="{TemplateBinding Background}"  BorderThickness="1" CornerRadius="3">
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
@@ -1082,9 +1082,9 @@
                             </Trigger>
                         </Style.Triggers>
                     </Style>
-                </Button.Style>
+                </RepeatButton.Style>
                 
-            </Button>
+            </RepeatButton>
         </Grid>
 
     </Grid>
