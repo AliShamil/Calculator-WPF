@@ -204,8 +204,7 @@ namespace Calculator_WPF
                 int count = txt.Text.ToString().Count(t => t=='.' ||t==',');
                
 
-                if (char.IsDigit(txt.Text[txt.Text.Length - 1]) || txt.Text[txt.Text.Length - 1] == '.' && btn.Content.ToString() != "." || txt.Text[txt.Text.Length - 1] == ',' && btn.Content.ToString() != ".")
-                    if (count <1)
+                if (count <1&&char.IsDigit(txt.Text[txt.Text.Length - 1]) || txt.Text[txt.Text.Length - 1] == '.' && btn.Content.ToString() != "." || txt.Text[txt.Text.Length - 1] == ',' && btn.Content.ToString() != ".")
                         txt.Text += btn.Content.ToString();
             }
         }
