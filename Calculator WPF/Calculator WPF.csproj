@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="icons8-calculator-48.png" />
+    <None Remove="icons8-delete-24.png" />
     <None Remove="icons8-menu-20.png" />
     <None Remove="icons8-menu-30.png" />
     <None Remove="icons8-time-machine-24 %281%29.png" />
@@ -17,11 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="icons8-calculator-48.png" />
-    <Resource Include="icons8-menu-20.png" />
-    <Resource Include="icons8-menu-30.png" />
-    <Resource Include="icons8-time-machine-24 (1).png" />
-    <Resource Include="Windows_Calculator_icon.png" />
+    <Resource Include="Icons\icons8-calculator-48.png" />
+    <Resource Include="Icons\icons8-delete-24.png" />
+    <Resource Include="Icons\icons8-menu-20.png" />
+    <Resource Include="Icons\icons8-menu-30.png" />
+    <Resource Include="Icons\icons8-time-machine-24 %281%29.png" />
+    <Resource Include="Icons\Windows_Calculator_icon.png" />
   </ItemGroup>
 
 </Project>
