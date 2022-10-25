@@ -76,8 +76,14 @@ namespace Calculator_WPF
                     break;
                 case Key.OemMinus:
                     ButtonCalcSymb_Click(findBtn(grid_num.Children, "-")!, e);
+                    break;                
+                case Key.Subtract:
+                    ButtonCalcSymb_Click(findBtn(grid_num.Children, "-")!, e);
                     break;
                 case Key.OemPlus:
+                    ButtonCalcSymb_Click(findBtn(grid_num.Children, "+")!, e);
+                    break;
+                case Key.Add:
                     ButtonCalcSymb_Click(findBtn(grid_num.Children, "+")!, e);
                     break;
                 case Key.Divide:
@@ -161,25 +167,15 @@ namespace Calculator_WPF
                     if (!double.TryParse(txt.Text, out _result))
                         return;
 
-                switch (btn.Content.ToString())
+                _result = btn.Content.ToString() switch
                 {
-                    case "%":
-                        _result /= 100;
-                        break;
-                    case "x":
-                        _result = Math.Pow(_result, 2);
-                        break;
-                    case "√x":
-                        _result =  Math.Sqrt(_result);
-                        break;
-                    case "1/x":
-                        _result =  1 / _result;
-                        break;
-                    case "±":
-                        _result*= -1;
-
-                        break;
-                }
+                    "√x" => Math.Sqrt(_result),
+                    "1/x" => 1 / _result,
+                    "%" => _result / 100,
+                    "±" => _result * -1,
+                    "x²" => Math.Pow(_result, 2),
+                    _ => _result
+                };
 
 
                 if (_result.ToString() == "∞")
@@ -198,13 +194,13 @@ namespace Calculator_WPF
 
             if (string.IsNullOrEmpty(txt.Text))
                 return;
-
+            
+            
             if (sender is Button btn)
             {
                 int count = txt.Text.ToString().Count(t => t=='.' ||t==',');
-               
 
-                if (count <1&&char.IsDigit(txt.Text[txt.Text.Length - 1]) || txt.Text[txt.Text.Length - 1] == '.' && btn.Content.ToString() != "." || txt.Text[txt.Text.Length - 1] == ',' && btn.Content.ToString() != ".")
+                if (char.IsDigit(txt.Text[txt.Text.Length - 1]) || txt.Text[txt.Text.Length - 1] == '.' && btn.Content.ToString() != "." || txt.Text[txt.Text.Length - 1] == ',' && btn.Content.ToString() != ".")
                         txt.Text += btn.Content.ToString();
             }
         }
